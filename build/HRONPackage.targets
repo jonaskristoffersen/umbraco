@@ -1,0 +1,43 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<HRONPackageContentFilesPath>$(MSBuildThisFileDirectory)..\Views\Partials\**\*.*</HRONPackageContentFilesPath>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+        <PluginContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\HR-ON\**\*.*</PluginContentFilesPath>
+    </PropertyGroup>
+
+	<Target Name="CopyHRONPackageAssets" BeforeTargets="Build">
+		<ItemGroup>
+			<HRONPackageContentFiles Include="$(HRONPackageContentFilesPath)" />
+		</ItemGroup>
+		<Message Text="Copying HRONPackage files: $(HRONPackageContentFilesPath) - #@(HRONPackageContentFiles->Count()) files" Importance="high" />
+		<Copy SourceFiles="@(HRONPackageContentFiles)" DestinationFiles="@(HRONPackageContentFiles->'$(MSBuildProjectDirectory)\Views\Partials\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+	</Target>
+
+    <Target Name="CopyPluginAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <PluginContentFiles Include="$(PluginContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying Plugin files: $(PluginContentFilesPath) - #@(PluginContentFiles->Count()) files" Importance="high" />
+        <Copy SourceFiles="@(PluginContentFiles)" DestinationFiles="@(PluginContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\HR-ON\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+    
+    <Target Name="ClearPluginAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <PluginsDir Include="$(MSBuildProjectDirectory)\App_Plugins\HR-ON\" />
+        </ItemGroup>
+        <Message Text="Clear old Plugin data" Importance="high" />
+        <RemoveDir Directories="@(PluginsDir)" />
+    </Target>
+	<Target Name="ClearHRONPackageAssets" BeforeTargets="Clean">
+		<ItemGroup>
+			<HRONPackagefile Include="$(MSBuildProjectDirectory)\Views\Partials\HR-ON.cshtml" />
+		</ItemGroup>
+		<Message Text="Clear old HRONPackage data" Importance="high" />
+
+		<RemoveDuplicates Directories="@(HRONPackageDir)" />
+	</Target>
+	
+
+</Project>
