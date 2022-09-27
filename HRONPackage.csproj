@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0.0</Version>
+		<TargetFramework>net6.0</TargetFramework>
+		<ContentTargetFolders>.</ContentTargetFolders>
+		<Product>HRONPackage</Product>
+		<PackageId>HRONPackage</PackageId>
+		<Title>HRONPackage</Title>
+		<Description>This is a HR-ON package that creates a Partial View that the user can insert into their umbraco project</Description>
+		<PackageTags>HR-ON Umbraco Plugin Package</PackageTags>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://gitlab.com/hr-on/recruit/recruit-umbraco-package</PackageProjectUrl>
+		<PackageIcon>HR-ON-Icon.jpg</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://gitlab.com/hr-on/recruit/recruit-umbraco-package</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReleaseNotes>Created a base PartialView, that customers can use when creating an Umbraco Application</PackageReleaseNotes>
+	</PropertyGroup>
+	<!--References-->
+	<ItemGroup>
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.1.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.1.0" />
+	</ItemGroup>
+	<!--Include-->
+	<ItemGroup>
+		<!-- Partial View-->
+		<Content Include="Views/Partials/HR-ON.cshtml" copyToOutput="true">
+			<IncludeInPackage>true</IncludeInPackage>
+			<CopyToOutput>true</CopyToOutput>
+			<BuildAction>Content</BuildAction>
+			<copyToOutput>true</copyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<!-- Getting Started Site -->
+		<Content Include="App_Plugins\HR-ON\**">
+      		<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      		<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+   		</Content>
+		<!-- Icon -->
+		<Content Include="Icons\HR-ON-Icon.jpg">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+		<!-- ReadMe -->
+		<Content Include="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+	</ItemGroup>
+	
+	<!--Building .targets file-->
+	<ItemGroup>
+		<None Include="build\**">
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
