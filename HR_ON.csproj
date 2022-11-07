@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+			<PackageId>HR_ON</PackageId>
+			<Version>1.0.0</Version>
+			<Title>HR-ON</Title>
+			<Authors>HR-ON</Authors>
+			<PackageLicenseExpression>MIT</PackageLicenseExpression>
+			<PackageProjectUrl>https://github.com/jonaskristoffersen/umbraco</PackageProjectUrl>
+			<PackageIcon>logo.jpg</PackageIcon>
+			<PackageIconUrl>https://github.com/jonaskristoffersen/umbraco/tree/main/images/logo.jpg</PackageIconUrl>
+			<RepositoryUrl>https://github.com/jonaskristoffersen/umbraco</RepositoryUrl>
+			<Description>This is a HR-ON package that creates a Partial View that the user can insert into their umbraco project</Description>
+			<Summary></Summary>
+			<Tags>Umbraco HR-ON</Tags>
+			<ContentTargetFolders>.</ContentTargetFolders>
+			<IncludeSymbols>true</IncludeSymbols>
+			<Product>HR-ON</Product>
+			<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.3.1" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.3.1" />
+	</ItemGroup>
+
+  <!--Building .targets file-->
+	<ItemGroup>
+		<Content Include="Views\**\*.*">
+		<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+
+		<None Remove="Migrations\package.zip" />
+		<EmbeddedResource Include="Migrations\package.zip" />
+
+		<None Include="images/logo.jpg" Pack="true" PackPath="\" />
+		
+		<None Include="build\**">
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
+	</ItemGroup>
+</Project>
