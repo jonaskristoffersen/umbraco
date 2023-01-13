@@ -1,5 +1,16 @@
 ﻿{
     "name": "HR-ON",
     "version": "1.0.0",
-    "allowPackageTelemetry": true
+    "allowPackageTelemetry": true,
+    "dashboards": [
+        {
+            "alias": "HR-ON",
+            "view":  "~/App_Plugins/HR_ON/views/dashboard.html",
+            "sections":  [ "content" ],
+            "weight": 30,
+            "access": [
+                { "grant": "admin" }
+            ]
+        }
+    ]
 }

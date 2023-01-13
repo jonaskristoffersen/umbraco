@@ -1,11 +1,15 @@
-using System.Xml.Linq;
+using Microsoft.Extensions.Options;
+using Umbraco.Cms.Core.Configuration.Models;
 using Umbraco.Cms.Core.IO;
-using Umbraco.Cms.Core.Packaging;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Strings;
-using Umbraco.Cms.Infrastructure.Migrations;
 using Umbraco.Cms.Infrastructure.Packaging;
+#if NETCOREAPP
+using Umbraco.Cms.Infrastructure.Migrations;
+#else
+using Umbraco.Core.Migrations;
+#endif
 
 namespace HR_ON.Migrations
 {
@@ -18,14 +22,16 @@ namespace HR_ON.Migrations
             MediaUrlGeneratorCollection mediaUrlGenerators,
             IShortStringHelper shortStringHelper,
             IContentTypeBaseServiceProvider contentTypeBaseServiceProvider,
-            IMigrationContext context)
+            IMigrationContext context
+            , IOptions<PackageMigrationSettings> packageMigrationsSettings)
             : base(packagingService,
                 mediaService,
                 mediaFileManager,
                 mediaUrlGenerators,
                 shortStringHelper,
                 contentTypeBaseServiceProvider,
-                context)
+                context,
+                packageMigrationsSettings)
         {
         }
 

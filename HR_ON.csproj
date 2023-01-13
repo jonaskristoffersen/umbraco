@@ -1,41 +1,43 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
-			<PackageId>HR_ON</PackageId>
-			<Version>1.0.0</Version>
-			<Title>HR-ON</Title>
-			<Authors>HR-ON</Authors>
-			<PackageLicenseExpression>MIT</PackageLicenseExpression>
-			<PackageProjectUrl>https://github.com/jonaskristoffersen/umbraco</PackageProjectUrl>
-			<PackageIcon>logo.jpg</PackageIcon>
-			<PackageIconUrl>https://github.com/jonaskristoffersen/umbraco/tree/main/images/logo.jpg</PackageIconUrl>
-			<RepositoryUrl>https://github.com/jonaskristoffersen/umbraco</RepositoryUrl>
-			<Description>This is a HR-ON package that creates a Partial View that the user can insert into their umbraco project</Description>
-			<Summary></Summary>
-			<Tags>Umbraco HR-ON</Tags>
-			<ContentTargetFolders>.</ContentTargetFolders>
-			<IncludeSymbols>true</IncludeSymbols>
-			<Product>HR-ON</Product>
-			<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<PackageId>HR-ON</PackageId>
+		<Version>1.0.0</Version>
+		<Title>HR-ON</Title>
+		<Authors>HR-ON</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>App_Plugins\HR_ON\images\logo.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/jonaskristoffersen/umbraco</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/jonaskristoffersen/umbraco</RepositoryUrl>
+		<Description>This is a HR-ON package that creates a Partial View that the user can insert into their umbraco project</Description>
+		<Summary></Summary>
+		<Tags>Umbraco HR-ON;umbraco-marketplace</Tags>
+		<PackageTags>Umbraco;HR-ON;umbraco-marketplace</PackageTags>
+		<ContentTargetFolders>.</ContentTargetFolders>
+		<IncludeSymbols>true</IncludeSymbols>
+		<Product>HR-ON</Product>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.3.1" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.3.1" />
+	<ItemGroup  Condition="'$(TargetFramework)' == 'net7.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="11.1.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="11.1.0" />
+	</ItemGroup>
+
+	<ItemGroup  Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.4.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.4.0" />
 	</ItemGroup>
 
   <!--Building .targets file-->
 	<ItemGroup>
-		<Content Include="Views\**\*.*">
-		<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-		<CopyToPublishDirectory>Always</CopyToPublishDirectory>
-		</Content>
+		<Content Include="App_Plugins\HR_ON\**">
+      		<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      		<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+   		</Content>
 
 		<None Remove="Migrations\package.zip" />
 		<EmbeddedResource Include="Migrations\package.zip" />
-
-		<None Include="images/logo.jpg" Pack="true" PackPath="\" />
 		
 		<None Include="build\**">
 			<Pack>true</Pack>
