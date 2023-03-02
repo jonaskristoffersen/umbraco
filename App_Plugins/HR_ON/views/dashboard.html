@@ -1,18 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link href="./../../App_Plugins/HR-ON/dashboard.css" rel="stylesheet">
-    <script src="./../../App_Plugins/HR-ON/dashboard.js"></script> -->
-    
-  </head>
-  <body>
-    <section>
-        <div id="footer" class="footer text-center">
-                If there are any problems, HR-ON Support
-        </div>
-    </section>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            *,
+            *:before,
+            *:after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            html, body {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            #main {
+                display: flex;
+                width: 800px;
+                max-width: 100%;
+                min-height: 100%;
+                flex-direction: column;
+                margin: auto;
+            }
+
+
+            #header {
+                display: flex;
+                min-width: 100%;
+                height: auto;
+            }
+
+            #header > img {
+                display: flex;
+                width: 200px;
+                height: auto;
+                margin: auto;
+            }
+
+
+
+            #body {
+                display: flex;
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+            }
+
+            #body > h1 {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+
+            .spacer {
+                display: flex;
+                min-width: 100%;
+                height: 0px;
+                padding: 8px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <main id="main">
+            <div id="header">
+                <img src="./../../App_Plugins/HR_ON/images/logo.png" alt="">
+            </div>
+            <div id="body">
+                <h1>Welcome to HR-ON in Umbraco</h1>
+                <p style="margin: 0px;">
+                    When installed this package extends Umbraco with HR-ON (Recruit) functionality.
+                </p>
+                <p style="margin: 0px;">
+                    This functionality allows Umbraco pages to show/display your list of jobpostings from Recruit.
+                </p>
+
+                <div class="spacer"></div>
+                <p>This package includes the following: Document types, Templates and Partial views.</p>
+
+                <div class="spacer"></div>
+                <p>1. Partial views</p>
+                <p>The 'HR-ON' partial view includes the code to insert the HTML and Scripts.</p>
+
+                <div class="spacer"></div>
+                <p>2. Templates</p>
+                <p>The 'HR-ON' template is just a 'wrapper' around the partial view to make usage easier.</p>
+
+                <div class="spacer"></div>
+                <p>3. Document types</p>
+                <p>
+                    The 'HR-ON' document type is a default page for showing/displaying the jobposting list. 
+                    It simply wraps the 'HR-ON' template and defines the inputs/variables needed for the partial view.
+                    These inputs being: 'scriptName' and 'containerName'.
+                </p>
+
+                <div class="spacer"></div>
+                <p>(The values for 'scriptName' and 'containerName' can be found in the HR'ON onboarding document.)</p>
+
+
+
+                <div class="spacer"></div>
+                <p>Customization:</p>
+                <p>
+                    The package provides default code for getting a page with jobpostings up and running. 
+                    However you can change these files directly to make changes, or you can make new templates and partial views based on, or inluding the default onces.
+                    You can take a look in the 'HR-ON' template and partial view to see how this can be done. 
+                </p>
+
+                <div class="spacer"></div>
+                <p>
+                    You can also make your own document type if needed but it must contain the 'scriptName' and 'containerName' variable for the jobposting list to work. 
+                </p>
+            </div>
+        </main>
+    </body>
 </html>

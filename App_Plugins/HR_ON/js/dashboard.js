@@ -1,3 +1,3 @@
-document.addEventListener("load", function(){
-    alert("tester");
+window.addEventListener("load", function(){
+
 });

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r78tcl3mJ9qyCl3hOcLqwMrETIldhAIBsFGWdNYa3SQHOfaGXzVqBm4DBLS8foLeVyHCR/F5QC3ZXG1XIfaZbg==",
+  "dgSpecHash": "4SHNdYntPHjb1/2kkzJIm6L93JBvysfk/bkS4t9s/Jyrx/QjVZg4JsBm2wGfJzCEi1VjTPJukiyRuLUtQ38mdg==",
   "success": true,
   "projectFilePath": "/home/jonas/umbraco/HR_ON/HR_ON.csproj",
   "expectedPackageFiles": [
@@ -302,9 +302,7 @@
     "/home/jonas/.nuget/packages/umbraco.cms.web.common/10.4.0/umbraco.cms.web.common.10.4.0.nupkg.sha512",
     "/home/jonas/.nuget/packages/umbraco.cms.web.common/11.1.0/umbraco.cms.web.common.11.1.0.nupkg.sha512",
     "/home/jonas/.nuget/packages/umbraco.cms.web.website/10.4.0/umbraco.cms.web.website.10.4.0.nupkg.sha512",
-    "/home/jonas/.nuget/packages/umbraco.cms.web.website/11.1.0/umbraco.cms.web.website.11.1.0.nupkg.sha512",
-    "/home/jonas/.nuget/packages/microsoft.netcore.app.ref/6.0.13/microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
-    "/home/jonas/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.13/microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512"
+    "/home/jonas/.nuget/packages/umbraco.cms.web.website/11.1.0/umbraco.cms.web.website.11.1.0.nupkg.sha512"
   ],
   "logs": []
 }
