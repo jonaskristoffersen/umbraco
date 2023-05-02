@@ -1,7 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <HR_ONContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\HR_ON\**\*.*</HR_ONContentFilesPath>
-    <PackageViewsFilePath>$(MSBuildThisFileDirectory)..\Views\**\*.*</PackageViewsFilePath>
   </PropertyGroup>
 
   <Target Name="CopyHR_ONAssets" BeforeTargets="Build">
@@ -18,16 +17,5 @@
     </ItemGroup>
     <Message Text="Clear old HR_ON data" Importance="high" />
     <RemoveDir Directories="@(HR_ONDir)" />
-  </Target>
-
-  <Target Name="CopyHR_ONViews" BeforeTargets="Build">
-    <ItemGroup>
-      <PackageViewsFiles Include="$(PackageViewsFilePath)" />
-    </ItemGroup>
-    <Message Text="Copying Clean Views files: $(PackageViewsFilesPath) - #@(PackageViewsFiles->Count()) files"  Importance="high" />
-    <Copy
-      SourceFiles="@(PackageViewsFiles)"
-      DestinationFiles="@(PackageViewsFiles->'$(MSBuildProjectDirectory)\Views\%(RecursiveDir)%(Filename)%(Extension)')"
-      SkipUnchangedFiles="true" />
   </Target>
 </Project>

@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    	<TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
 		<PackageId>HR-ON</PackageId>
-		<Version>1.0.0</Version>
+		<Version>1.1.1</Version>
 		<Title>HR-ON</Title>
 		<Authors>HR-ON</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -19,29 +19,34 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
-	<ItemGroup  Condition="'$(TargetFramework)' == 'net7.0'">
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="11.1.0" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="11.1.0" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.5.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.5.0" />
 	</ItemGroup>
 
-	<ItemGroup  Condition="'$(TargetFramework)' == 'net6.0'">
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.4.0" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.4.0" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="11.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="11.0.0" />
 	</ItemGroup>
 
   <!--Building .targets file-->
 	<ItemGroup>
-		<Content Include="App_Plugins\HR_ON\**">
-      		<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      		<CopyToPublishDirectory>Always</CopyToPublishDirectory>
-   		</Content>
-
 		<None Remove="Migrations\package.zip" />
 		<EmbeddedResource Include="Migrations\package.zip" />
-		
-		<None Include="build\**">
-			<Pack>true</Pack>
-			<PackagePath>buildTransitive</PackagePath>
-		</None>
-	</ItemGroup>
+
+        <Content Include="App_Plugins\HR_ON\**\*.*">
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </Content>
+
+        <None Include="build\**\*.*">
+            <Pack>True</Pack>
+            <PackagePath>buildTransitive</PackagePath>
+        </None>
+    </ItemGroup>
 </Project>
