@@ -5,7 +5,7 @@
     "dashboards": [
         {
             "alias": "HR-ON",
-            "view":  "~/App_Plugins/HR_ON/views/dashboard.html",
+            "view":  "~/App_Plugins/Recruit.HR_ON/views/dashboard.html",
             "sections":  [ "content" ],
             "weight": 30,
             "access": [

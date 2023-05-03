@@ -1,25 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-    	<TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
-		<PackageId>HR-ON</PackageId>
-		<Version>1.1.1</Version>
-		<Title>HR-ON</Title>
-		<Authors>HR-ON</Authors>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageIcon>App_Plugins\HR_ON\images\logo.png</PackageIcon>
+  <PropertyGroup>
+		<PackageId>Recruit.HR_ON</PackageId>
+		<version>1.0.0-alpha</version>
+    <PackageVersion>1.0.0-alpha</PackageVersion>
+    <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
+		<PackageIcon>App_Plugins\Recruit.HR_ON\images\logo.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/jonaskristoffersen/umbraco</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/jonaskristoffersen/umbraco</RepositoryUrl>
-		<Description>This is a HR-ON package that creates a Partial View that the user can insert into their umbraco project</Description>
-		<Summary></Summary>
-		<Tags>Umbraco HR-ON;umbraco-marketplace</Tags>
-		<PackageTags>Umbraco;HR-ON;umbraco-marketplace</PackageTags>
-		<ContentTargetFolders>.</ContentTargetFolders>
-		<IncludeSymbols>true</IncludeSymbols>
-		<Product>HR-ON</Product>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	</PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+
+		<Title>HR-ON</Title>
+		<Authors>HR-ON</Authors>
+		<Product>HR-ON</Product>
+
+		<Description>This is a HR-ON package that creates a Partial View that the user can insert into their umbraco project</Description>
+		<Summary>This is a HR-ON package that creates a Partial View that the user can insert into their umbraco project</Summary>
+
+		<PackageTags>Umbraco;HR-ON;umbraco-marketplace</PackageTags>
+		<Tags>Umbraco HR-ON;umbraco-marketplace</Tags>
+
+
+		<IncludeSymbols>true</IncludeSymbols>
+		<ContentTargetFolders>.</ContentTargetFolders>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
 		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.5.0" />
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.5.0" />
 	</ItemGroup>
@@ -34,19 +41,16 @@
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="11.0.0" />
 	</ItemGroup>
 
-  <!--Building .targets file-->
-	<ItemGroup>
+
+
+
+  <ItemGroup>
 		<None Remove="Migrations\package.zip" />
 		<EmbeddedResource Include="Migrations\package.zip" />
+  </ItemGroup>
 
-        <Content Include="App_Plugins\HR_ON\**\*.*">
-            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-        </Content>
-
-        <None Include="build\**\*.*">
-            <Pack>True</Pack>
-            <PackagePath>buildTransitive</PackagePath>
-        </None>
-    </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\Recruit.HR_ON\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
+    <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
+  </ItemGroup>
 </Project>

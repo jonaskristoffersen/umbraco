@@ -11,7 +11,7 @@ using Umbraco.Cms.Infrastructure.Migrations;
 using Umbraco.Core.Migrations;
 #endif
 
-namespace HR_ON.Migrations
+namespace Recruit.HR_ON.Migrations
 {
     public class ImportPackageXmlMigration : PackageMigrationBase
     {

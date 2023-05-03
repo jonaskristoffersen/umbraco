@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RecruitHR_ONContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Recruit.HR_ON\**\*.*</RecruitHR_ONContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyRecruitHR_ONAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <RecruitHR_ONContentFiles Include="$(RecruitHR_ONContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying Recruit.HR_ON files: $(RecruitHR_ONContentFilesPath) - #@(RecruitHR_ONContentFiles->Count()) files" Importance="high" />
+    <Copy SourceFiles="@(RecruitHR_ONContentFiles)" DestinationFiles="@(RecruitHR_ONContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Recruit.HR_ON\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearRecruitHR_ONAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <RecruitHR_ONDir Include="$(MSBuildProjectDirectory)\App_Plugins\Recruit.HR_ON\" />
+    </ItemGroup>
+    <Message Text="Clear old Recruit.HR_ON data" Importance="high" />
+    <RemoveDir Directories="@(RecruitHR_ONDir)" />
+  </Target>
+</Project>
