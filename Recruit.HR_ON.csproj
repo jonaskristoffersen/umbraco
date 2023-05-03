@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
 		<PackageId>Recruit.HR_ON</PackageId>
-		<version>1.0.0-alpha</version>
-    <PackageVersion>1.0.0-alpha</PackageVersion>
+		<version>1.0.0</version>
+    <PackageVersion>1.0.0</PackageVersion>
     <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
 		<PackageIcon>App_Plugins\Recruit.HR_ON\images\logo.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/jonaskristoffersen/umbraco</PackageProjectUrl>
